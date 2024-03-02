@@ -1,13 +1,15 @@
-public class Persona2 {
+package Practica_290223;
+
+class Persona{
     // Atributos demográficos
     private String nombre;
-    private int edad;
-    protected String comida; // Atributo declarado como PROTECTED
-    private String altura;    // Atributo declarado como PRIVATE
-    protected String genero;
+    protected int edad;
+    private String comida; 
+    private String altura;    
+    private String genero;
 
     // Constructores (puedes tener varios según tus necesidades)
-    public Persona2(String nombre, int edad, String comida, String altura, String genero) {
+    public Persona(String nombre, int edad, String comida, String altura, String genero) {
         this.nombre = nombre;
         this.edad = edad;
         this.comida = comida;
@@ -32,11 +34,11 @@ public class Persona2 {
         this.edad = edad;
     }
 
-    protected String getComida() {  // Método get declarado como PROTECTED
+    public String getComida() {  
         return comida;
     }
 
-    protected void setComida(String comida) {  // Método set declarado como PROTECTED
+    public void setComida(String comida) {  
         this.comida = comida;
     }
 
@@ -44,12 +46,15 @@ public class Persona2 {
         return altura;
     }
 
-    private void setAltura(String altura) {  // Método set declarado como PRIVATE
+    public void setAltura(String altura) {  
         this.altura = altura;
     }
 
     public String getGenero() {
         return genero;
+    }
+    public void setGenero(String genero){
+        this.genero=genero;
     }
 
     // Métodos comer, dormir, tomarBaño
@@ -61,25 +66,17 @@ public class Persona2 {
         System.out.println("Durmiendo por " + horas + " horas");
     }
 
-    protected void tomarBaño(String tipo) {  // Método declarado como PROTECTED
+    public void tomarBaño(String tipo) {  
         System.out.println("Tomando un baño de tipo: " + tipo);
     }
-
-    // Método main para probar la clase
+}
+public class Accesos {
     public static void main(String[] args) {
-        // Crear una instancia de Persona2
-        Persona2 persona = new Persona2("Maria", 30, "Ensalada", "1.65m", "Femenino");
-
-        // Invocar atributos
-        System.out.println("Nombre: " + persona.getNombre());
-        System.out.println("Edad: " + persona.getEdad());
-        System.out.println("Comida favorita: " + persona.getComida());
-        // No podemos acceder directamente a setAltura ya que es PRIVATE
-      
-
-        // Invocar métodos
-        persona.comer("Sushi");
-        persona.dormir(8);
-        persona.tomarBaño("Caliente");  // Invocamos el método protegido
+       
+        Persona persona1 = new Persona("Maria", 30, "Ensalada", "1.65m", "Femenino");
+        persona1.setGenero("femenino");
+        persona1.comer("Sushi");
+        persona1.dormir(8);
+        persona1.tomarBaño("Caliente");  // Invocamos el método protegido
     }
 }
